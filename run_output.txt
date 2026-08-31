@@ -1,0 +1,128 @@
+
+======================================================================
+Test Case 1: Basic Reachability (S -> A -> B -> G)
+======================================================================
+  Unique valid path expected: [0,1,2,3]
+    success            : True
+    state path         : [0, 1, 2, 3]
+    transition path    : [0, 1, 2]
+    total cost         : 3.000
+    avg safety score   : 1.000
+    min dist to bad    : inf
+    states explored    : 4
+    planning time (ms) : 0.0923
+    peak memory (KB)   : 0.20
+
+======================================================================
+Test Case 2: Bad State Avoidance
+======================================================================
+  Second path (S->C->D->G) must be selected
+    success            : True
+    state path         : [0, 4, 5, 3]
+    transition path    : [3, 4, 5]
+    total cost         : 4.500
+    avg safety score   : 1.000
+    min dist to bad    : 2.000
+    states explored    : 4
+    planning time (ms) : 0.0577
+    peak memory (KB)   : 0.20
+
+======================================================================
+Test Case 3: Safety Margin Trade-off
+======================================================================
+  Cost-only weighting -> picks the cheap-but-close path
+    success            : True
+    state path         : [0, 1, 2, 5]
+    transition path    : [0, 1, 2]
+    total cost         : 3.000
+    avg safety score   : 0.950
+    min dist to bad    : 0.800
+    states explored    : 4
+    planning time (ms) : 0.0856
+    peak memory (KB)   : 0.23
+  Safety-weighted -> trades cost for distance from bad state
+    success            : True
+    state path         : [0, 3, 4, 5]
+    transition path    : [3, 4, 5]
+    total cost         : 6.000
+    avg safety score   : 0.990
+    min dist to bad    : 1.414
+    states explored    : 5
+    planning time (ms) : 0.0691
+    peak memory (KB)   : 0.39
+
+======================================================================
+Test Case 4: Dynamic Transition (edge removed)
+======================================================================
+  Before: S->A->G
+    success            : True
+    state path         : [0, 1, 2]
+    transition path    : [0, 1]
+    total cost         : 2.000
+    avg safety score   : 1.000
+    min dist to bad    : inf
+    states explored    : 3
+    planning time (ms) : 0.0529
+    peak memory (KB)   : 0.23
+  After (A,G) unavailable: alternative path found
+    success            : True
+    state path         : [0, 3, 4, 2]
+    transition path    : [2, 3, 4]
+    total cost         : 4.500
+    avg safety score   : 1.000
+    min dist to bad    : inf
+    states explored    : 8
+    planning time (ms) : 0.1060
+    peak memory (KB)   : 0.48
+
+======================================================================
+Test Case 5: Goal Update
+======================================================================
+  Original goal (3)
+    success            : True
+    state path         : [0, 1, 2, 3]
+    transition path    : [0, 1, 2]
+    total cost         : 3.000
+    avg safety score   : 1.000
+    min dist to bad    : inf
+    states explored    : 4
+    planning time (ms) : 0.0532
+    peak memory (KB)   : 0.20
+  Revised goal (2), replanned without rebuilding the graph
+    success            : True
+    state path         : [0, 1, 2]
+    transition path    : [0, 1]
+    total cost         : 2.000
+    avg safety score   : 1.000
+    min dist to bad    : inf
+    states explored    : 7
+    planning time (ms) : 0.0337
+    peak memory (KB)   : 0.20
+
+======================================================================
+Test Case 6: Transition Addition (shortcut)
+======================================================================
+  Before shortcut: S->A->B->G, cost 3
+    success            : True
+    state path         : [0, 1, 2, 3]
+    transition path    : [0, 1, 2]
+    total cost         : 3.000
+    avg safety score   : 1.000
+    min dist to bad    : inf
+    states explored    : 4
+    planning time (ms) : 0.0443
+    peak memory (KB)   : 0.20
+  After shortcut S->G added: improved solution found
+    success            : True
+    state path         : [0, 3]
+    transition path    : [99]
+    total cost         : 1.200
+    avg safety score   : 0.980
+    min dist to bad    : inf
+    states explored    : 5
+    planning time (ms) : 0.0076
+    peak memory (KB)   : 0.05
+
+======================================================================
+ALL TEST CASES PASSED
+======================================================================

@@ -1,0 +1,5 @@
+  N states    N edges   cold plan(ms)   incr replan(ms)    speedup  explored(cold)  explored(incr)
+        50        300           4.051             1.682      2.41x              28              32
+       200        800          16.280             8.973      1.81x             176             232
+       500       2500          14.393            13.012      1.11x              96             100
+      1000       6000          42.533            39.354      1.08x             200             214
