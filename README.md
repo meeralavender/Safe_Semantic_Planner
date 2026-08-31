@@ -1,4 +1,8 @@
-# Safe Semantic Planner — PCCST503 Assignment 1
+# Safe Semantic Planner 
+
+Name: Meera Nandita S
+Registration Number: TCR24CS045
+Deployed Project Link: https://safe-semantic-planner.streamlit.app/
 
 A safe path planner over a finite Cartesian state space, implemented with
 **D* Lite**, satisfying all five optimization objectives from the
