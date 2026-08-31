@@ -1,7 +1,7 @@
 # Safe Semantic Planner 
 
-Name: Meera Nandita S
-Registration Number: TCR24CS045
+Name: Meera Nandita S  
+Registration Number: TCR24CS045  
 Deployed Project Link: https://safe-semantic-planner.streamlit.app/
 
 A safe path planner over a finite Cartesian state space, implemented with
